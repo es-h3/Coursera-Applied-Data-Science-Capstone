@@ -85,7 +85,7 @@ def create_pie(val):
 
 def create_scatter(val,range):
     title="Correlation between payload and success for all sites"
-    data=spacex_df
+    data=spacex_df[(spacex_df["Payload Mass (kg)"]>=range[0]) & (spacex_df["Payload Mass (kg)"]<=range[1])]
     if val!="ALL":
         data=spacex_df[spacex_df["Launch Site"]==val]
         title=f"Correlation between payload and success for site {val} "
